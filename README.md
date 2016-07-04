@@ -213,23 +213,24 @@ Some useful commands
 ### Workflow outlines:
 
 #### Working on feature branches
-Check out `dev`: `git co dev` --> <br />
-&nbsp;&nbsp;Create a new branch: `git nb <branch>` --> <br />
-&nbsp;&nbsp;&nbsp;&nbsp;Work on feature --> <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prepare branch for being merged back into `dev`: `git updev`, `git rebase dev` --> <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ solve conflicts ] --> <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Push to origin and open a pull request against `dev` --> Once your branch is merged, delete it: `git db <branch>`.
+  - Check out `dev`: `git co dev`
+  - Create a new branch: `git nb <branch>`
+  - Work on feature
+  - Prepare branch for being merged back into `dev`: `git updev`, `git rebase dev`
+  - [ solve conflicts ]
+  - Push to origin and open a pull request against `dev`
+  - Once your branch is merged, delete it: `git db <branch>`
 
 #### Working on release branches
-Check out `dev`: `git co dev` --> <br />
-&nbsp;&nbsp;Create a new branch: `git nb <branch>` --> <br />
-&nbsp;&nbsp;&nbsp;&nbsp;Prepare release --> <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Push to origin and open a pull request against `dev` and another pull request against `master` --> <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Once your branch is merged, into both `dev` and `master`, delete it: `git db <branch>`.
+  - Check out `dev`: `git co dev`
+  - Create a new branch: `git nb <branch>`
+  - Prepare release
+  - Push to origin and open a pull request against `dev` and another pull request against `master`
+  - Once your branch is merged, into both `dev` and `master`, delete it: `git db <branch>`.
 
 #### Working on hotfix branches
-Check out `master`: `git co master` --> 
-&nbsp;&nbsp;Create a new branch: `git nb <branch>` --> <br />
-&nbsp;&nbsp;&nbsp;&nbsp;Work on hotfix --> <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Push to origin and open a pull request against against `master` and another pull request against `dev` or against a release branch, if one exists --> <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Once your branch is merged, into both `master` and `dev` (or a release branch, if one exists), delete it: `git db <branch>`.
+  - Check out `master`: `git co master`
+  - Create a new branch: `git nb <branch>`
+  - Work on hotfix
+  - Push to origin and open a pull request against against `master` and another pull request against `dev` or against a release branch, if one exists
+  - Once your branch is merged, into both `master` and `dev` (or a release branch, if one exists), delete it: `git db <branch>`.

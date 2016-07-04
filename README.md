@@ -58,7 +58,7 @@ Feature branches should only be merged into `dev` when they are ready to be incl
 
 Merges to dev should only be done using the non fast forward strategy:
 ```sh
-git checkout dev
+git co dev
 git mnff <feature-branch>
 ```
 
@@ -81,7 +81,7 @@ Release branches should be used for the QA process, bug-fixes of non-production 
 
 Once complete, a release branch should be merged into `master`, where a tag should be created:
 ```sh
-git checkout master
+git co master
 git mnff <release-branch>
 git tag -a <release-number>
 ```
@@ -89,7 +89,7 @@ git tag -a <release-number>
 To keep the changes made in the release branch, which have not yet been merged back into `dev`, we need to merge 
 those back into `dev` as well: 
 ```sh
-git checkout dev
+git co dev
 git mnff <release-branch>
 ```
 
@@ -112,14 +112,14 @@ Hotfix branches are used to quickly patch code that has already been merged into
 
 Once complete, a hotfix branch should be merged into `master`, where a tag should be created:
 ```sh
-git checkout master
+git co master
 git mnff <hotfix-branch>
 git tag -a <release-number>
 ```
 
 and then into `dev` (or a release branch if one currently exists):
 ```sh
-git checkout dev
+git co dev
 git mnff <hotfix-branch>
 ```
 
@@ -146,7 +146,7 @@ See instructions [here](https://github.com/Haaretz/htz-dotfiles).
 ### Working with Feature Branches
 Before starting to work on your feature, checkout `dev` so it can be synced with `origin`:
 ```sh
-git checkout dev
+git co dev
 git nb <branch-name>
 ```
 
@@ -171,12 +171,12 @@ Once all conflicts are resolved, run `git rebase --continue`.
 
 If for any reason you would like to cancel the `rebase` process, run `git rebase --abort`. Whatever you do, do not run `git rebase --skip`, unless you know very well what you are doing.
 
-Your code is now ready to be merged back into `dev`. Push it to GitHub and open a pull request.
+Your code is now ready to be merged back into `dev`. Push it to GitHub and open a pull request against dev.
 
 ### Working with Hotfix Branches
 Before starting to work on a hotfix, checkout `master` so it can be synced with `origin`, and branch off of that:
 ```sh
-git checkout master
+git co master
 git nb <branch-name>
 ```
 
@@ -202,8 +202,34 @@ Some useful commands
 
 | Command | Notes | Used for |
 | --- | --- | --- |
+| `git co` | `git checkout` | |
 | `git mnff <branch>` | Merges `<branch>` into the branch you are currently without fast-forward. | Merging temporary branches back into permanent branches, while keeping a tidy tree structure. |
 | `git db <branch>` | Deletes `<branch>` from both the local repo and from origin. | Discarding stale temporary branches _after_ they have been merged into the primary branch(es). |
 | `git nb <branch>` | Syncs the branch your are currently in with origin, and creates a new `<branch>` branch. | Creating new `feature`, `release` or `hotfix` branches. |
 | `git updev` | Checks out `dev`, syncs it with origin and checks out the branch you were originally on. | Preparing for rebasing a `feature` or `release` branch onto `dev`, just before it is ready to be merged back. |
 | `git upmaster` | Checks out `master`, syncs it with origin and checks out the branch you were originally on. | Preparing for rebasing a `hotfix` branch onto `master`, just before it is ready to be merged back. |
+
+
+### Workflow outlines:
+
+#### Working on feature branches
+Check out `dev`: `git co dev` --> <br />
+    Create a new branch: `git nb <branch>` --> <br />
+        work on feature --> <br />
+            Prepare branch for being merged back into `dev`: `git updev`, `git rebase dev` --> <br />
+                [ solve conflicts ] --> <br />
+                    push to origin and open a pull request against `dev` --> Once your branch is merged, delete it: `git db <branch>`.
+
+#### Working on release branches
+Check out `dev`: `git co dev` --> <br />
+    Create a new branch: `git nb <branch>` --> <br />
+        work on feature --> <br />
+            push to origin and open a pull request against `dev` and another pull request against `master` --> <br />
+                Once your branch is merged, into both `dev` and `master`, delete it: `git db <branch>`.
+
+#### Working on hotfix branches
+Check out `master`: `git co master` --> 
+    Create a new branch: `git nb <branch>` --> <br />
+        work on hotfix --> <br />
+            push to origin and open a pull request against against `master` and another pull request against `dev` or against a release branch, if one exists --> <br />
+                Once your branch is merged, into both `master` and `dev` (or a release branch, if one exists), delete it: `git db <branch>`.

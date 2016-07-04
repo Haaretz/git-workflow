@@ -119,8 +119,11 @@ git branch -d <hotfix-branch>
 
 
 ## Branching Workflow
-The commands outlined in this workflow assume you have the Haaretz [`.gitconfig`](https://github.com/Haaretz/htz-dotfiles/blob/master/.gitconfig) installed. If it is 
-not installed on your machine, please install it before doing anything else.
+The commands outlined in this workflow assume you have the Haaretz 
+[`.gitconfig`](https://github.com/Haaretz/htz-dotfiles/blob/master/.gitconfig) 
+installed, and some of them are aliases, which will not be available with a 
+vanilla installation of Git. It is generally a good idea to familiarize 
+yourself with the config file, as it offers some handy aliases and shortcuts.
 
 ### Working with Feature Branches
 Before starting to work on your feature, checkout `dev` so it can be synced with `origin`:

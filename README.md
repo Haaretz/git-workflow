@@ -62,8 +62,12 @@ git merge --no-ff <feature-branch>
 
 Once merged into `dev` the feature branch is ready to be discarded:
 ```sh
-git branch -d <feature-branch>
+git db <feature-branch>
 ```
+
+**Causion:** the `db` alias stands for `delete baranch`, and it will delete your branch both 
+locally and _and from `origin`_. Only use it when after having finished merging your branch into
+its base permanent branch.
 
 #### Release Branches
 **Branches from:** `dev`  
@@ -90,8 +94,13 @@ git merge --no-ff <release-branch>
 This step may often lead to merge conflict, which should be resolved and committed into `dev`. The release branch may 
 now be discarded:
 ```sh
-git branch -d <release-branch>
+git db <release-branch>
 ```
+
+**Causion:** the `db` alias stands for `delete baranch`, and it will delete your branch both 
+locally and _and from `origin`_. Only use it when after having finished merging your branch into
+its base permanent branch.
+
 
 #### Hotfix Branches
 **Branches from:** `master`  
@@ -114,8 +123,12 @@ git merge --no-ff <hotfix-branch>
 
 The hotfix branch may now be discarded:
 ```sh
-git branch -d <hotfix-branch>
+git db <hotfix-branch>
 ```
+
+**Causion:** the `db` alias stands for `delete baranch`, and it will delete your branch both 
+locally and _and from `origin`_. Only use it when after having finished merging your branch into
+its base permanent branch.
 
 
 ## Branching Workflow

@@ -196,12 +196,14 @@ This step may introduce conflicts, which will leave you in a `detached-head` sta
 
 Once ready, hotfixes should be merged back to both `master`, `dev`. If there is an active release branch at the time the hotfix should also be merged into it.
 
-## Cheatsheeet
+## Cheatsheet
+
 Some useful commands
-Command | Notes | Used for
---- | --- | ---
-`git mnff <branch>` | Merges `<branch>` into the branch you are currently without fast-forward. | Merging temporary branches back into permanent branches, while keeping a tidy tree structure.
-`git db <branch>` | Deletes `<branch>` from both the local repo and from origin. | Discarding stale temporary branches _after_ they have been merged into the primary branch(es).
-`git nb <branch>` | Syncs the branch your are currently in with origin, and creates a new `<branch>` branch. | Creating new `feature`, `release` or `hotfix` branches.
-`git updev` | Checks out `dev`, syncs it with origin and checks out the branch you were originally on. | Preparing for rebasing a `feature` or `release` branch onto `dev`, just before it is ready to be merged back.
-`git upmaster` | Checks out `master`, syncs it with origin and checks out the branch you were originally on. | Preparing for rebasing a `hotfix` branch onto `master`, just before it is ready to be merged back.
+
+| Command | Notes | Used for |
+| --- | --- | --- |
+| `git mnff <branch>` | Merges `<branch>` into the branch you are currently without fast-forward. | Merging temporary branches back into permanent branches, while keeping a tidy tree structure. |
+| `git db <branch>` | Deletes `<branch>` from both the local repo and from origin. | Discarding stale temporary branches _after_ they have been merged into the primary branch(es). |
+| `git nb <branch>` | Syncs the branch your are currently in with origin, and creates a new `<branch>` branch. | Creating new `feature`, `release` or `hotfix` branches. |
+| `git updev` | Checks out `dev`, syncs it with origin and checks out the branch you were originally on. | Preparing for rebasing a `feature` or `release` branch onto `dev`, just before it is ready to be merged back. |
+| `git upmaster` | Checks out `master`, syncs it with origin and checks out the branch you were originally on. | Preparing for rebasing a `hotfix` branch onto `master`, just before it is ready to be merged back. |

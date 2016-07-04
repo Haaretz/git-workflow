@@ -138,7 +138,7 @@ git nb <branch-name>
 Your new branch is now checked out and ready to have code committed to it. Once you are done with the feature, 
 go back to `dev`, make sure again that it is up to date, and return to your feature branch:
 ```sh
-git checkout dev && git up && git checkout <branch-name>
+git updev
 ```
 
 To maintain a clean, manageable tree, rebase your code onto `dev`:
@@ -168,7 +168,7 @@ git nb <branch-name>
 Your new branch is now checked out and ready to have code committed to it. Once you are done with the fix, 
 go back to `master`, make sure again that it is up to date, and return to your hotfix branch:
 ```sh
-git checkout master && git up && git checkout <branch-name>
+git upmaster
 ```
 
 To maintain a clean, manageable tree, rebase your code onto `master`:

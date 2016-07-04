@@ -5,6 +5,8 @@ This proposal discusses two issues:
 - **[Branching strategy](#branching-strategy):** The branch structure and stages of a project
 - **[Branching workflow](#branching-workflow):** The actual workflow of creating and working on feature branches.
 
+For a short, printable cheatsheet of useful commands, see [here](#cheatsheet).
+
 ## Branching Strategy
 The general branching strategy should follow the one outlined by the 
 [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/) model. 
@@ -57,7 +59,7 @@ Feature branches should only be merged into `dev` when they are ready to be incl
 Merges to dev should only be done using the non fast forward strategy:
 ```sh
 git checkout dev
-git merge --no-ff <feature-branch>
+git mnff <feature-branch>
 ```
 
 Once merged into `dev` the feature branch is ready to be discarded:
@@ -80,7 +82,7 @@ Release branches should be used for the QA process, bug-fixes of non-production 
 Once complete, a release branch should be merged into `master`, where a tag should be created:
 ```sh
 git checkout master
-git merge --no-ff <release-branch>
+git mnff <release-branch>
 git tag -a <release-number>
 ```
 
@@ -88,7 +90,7 @@ To keep the changes made in the release branch, which have not yet been merged b
 those back into `dev` as well: 
 ```sh
 git checkout dev
-git merge --no-ff <release-branch>
+git mnff <release-branch>
 ```
 
 This step may often lead to merge conflict, which should be resolved and committed into `dev`. The release branch may 
@@ -111,14 +113,14 @@ Hotfix branches are used to quickly patch code that has already been merged into
 Once complete, a hotfix branch should be merged into `master`, where a tag should be created:
 ```sh
 git checkout master
-git merge --no-ff <hotfix-branch>
+git mnff <hotfix-branch>
 git tag -a <release-number>
 ```
 
 and then into `dev` (or a release branch if one currently exists):
 ```sh
 git checkout dev
-git merge --no-ff <hotfix-branch>
+git mnff <hotfix-branch>
 ```
 
 The hotfix branch may now be discarded:
@@ -193,3 +195,13 @@ git rebase master
 This step may introduce conflicts, which will leave you in a `detached-head` state, mid-rebase. See above on how to resolve that.
 
 Once ready, hotfixes should be merged back to both `master`, `dev`. If there is an active release branch at the time the hotfix should also be merged into it.
+
+## Cheatsheeet
+Some useful commands
+Command | Notes | Used for
+--- | --- | ---
+`git mnff <branch>` | Merges `<branch>` into the branch you are currently without fast-forward. | Merging temporary branches back into permanent branches, while keeping a tidy tree structure.
+`git db <branch>` | Deletes `<branch>` from both the local repo and from origin. | Discarding stale temporary branches _after_ they have been merged into the primary branch(es).
+`git nb <branch>` | Syncs the branch your are currently in with origin, and creates a new `<branch>` branch. | Creating new `feature`, `release` or `hotfix` branches.
+`git updev` | Checks out `dev`, syncs it with origin and checks out the branch you were originally on. | Preparing for rebasing a `feature` or `release` branch onto `dev`, just before it is ready to be merged back.
+`git upmaster` | Checks out `master`, syncs it with origin and checks out the branch you were originally on. | Preparing for rebasing a `hotfix` branch onto `master`, just before it is ready to be merged back.

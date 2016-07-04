@@ -125,6 +125,9 @@ installed, and some of them are aliases, which will not be available with a
 vanilla installation of Git. It is generally a good idea to familiarize 
 yourself with the config file, as it offers some handy aliases and shortcuts.
 
+If it is not installed on your machine, please install it before doing anything else.
+See instructions [here](https://github.com/Haaretz/htz-dotfiles).
+
 ### Working with Feature Branches
 Before starting to work on your feature, checkout `dev` so it can be synced with `origin`:
 ```sh

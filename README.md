@@ -9,9 +9,9 @@ _note: The examples used throughout this document assume you have the Haaretz
 installed. Many of the command-line examples use aliases, which will not be 
 available with a vanilla installation of Git. It is generally a good idea to 
 familiarize yourself with the config file, as it offers some handy aliases and 
-shortcuts.
+shortcuts._
 
-If it is not installed on your machine, please install it before doing anything else.
+_If it is not installed on your machine, please install it before doing anything else.
 See instructions [here](https://github.com/Haaretz/htz-dotfiles)._
 
 ## Branching Strategy

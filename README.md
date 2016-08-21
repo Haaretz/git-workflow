@@ -60,6 +60,9 @@ To create a new feature branch:
 git feature <branch-name>
 ```
 
+Your branch name should include the Jira issue inside square brackets at its beginning
+and a short description. It will automatically be prefixed with `feature/`
+
 For manageability and tracking, all code in the feature branch should be strictly 
 restricted to the branch's topic and not exceed from it. For example, say a developer, 
 while working on a feature branch, notices a small bug in the code base, that 
@@ -118,8 +121,11 @@ continue to be safely merged into `master` as usual.
 
 To create a new feature branch: 
 ```sh
-git feature <branch-name>
+git release <branch-name>
 ```
+
+Your branch name should include the Jira issue inside square brackets at its beginning
+and a short description. It will automatically be prefixed with `release/`
 
 Release branches should be used for the QA process, bug-fixes of non-production 
 code and preparing release meta-data. In order to minimize future merge conflicts, 
@@ -159,6 +165,10 @@ into production. Hotfix branches fork off the latest tag, not off a branch:
 git hotfix <branch-name>  # An alias that checks out the the latest tag and 
                           # automatically creates a new branch off of it.
 ```
+
+
+Your branch name should include the Jira issue inside square brackets at its beginning
+and a short description. It will automatically be prefixed with `hotfix/`
 
 As soon as the hotfix is complete, the tip of the branch should be tagged with 
 an updated version number in order to cut the new patch release. It should then 

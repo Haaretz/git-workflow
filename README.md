@@ -1,7 +1,7 @@
 # git-workflow
 A git workflow proposal for the Haaretz dev team
 
-For a short, printable cheatsheet of useful commands, see [here](#cheatsheet).
+For a short, printable **cheatsheet of useful commands**, see [here](#cheatsheet).  
 For a short outline of commands, see [here](#workflow-outlines).
 
 _note: The examples used throughout this document assume you have the Haaretz 

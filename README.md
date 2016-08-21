@@ -198,7 +198,7 @@ Some useful commands
 | Command | Notes | Used for |
 | --- | --- | --- |
 | `git co` | `git checkout` | |
-| `git mb <branch>` | Merges `<branch>` into the branch you are currently using the no-fast-forward strategy. | Merging temporary branches back into `master`, while keeping a tidy tree structure. |
+| `git mb <branch>` or `git merge-baranch` | Merges `<branch>` into the branch you are currently using the no-fast-forward strategy. | Merging temporary branches back into `master`, while keeping a tidy tree structure. |
 | `git db <branch>` | Deletes `<branch>` from both the local repo and from origin. | Discarding stale temporary branches _after_ they have been merged into the primary branch(es). |
 | `git feature <branch>` | Syncs `master` with `origin` and checks out a new branch from it | Creating new `feature` branches. |
 | `git release <branch>` | Syncs `master` with `origin` and checks out a new branch from it | Creating new `release` branches. |
